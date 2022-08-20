@@ -1,12 +1,16 @@
 Rails.application.routes.draw do
-  resources :users, only: [:show, :edit]
-
-
-  root to: "homes#top"
   devise_for :users
-
+  root to: "homes#top"
   resources :post_images, only: [:new, :create, :index, :show, :destroy]
   # resources :post_images, only: [:new, :index, :show] ⇦正規コマンド
+  
+  resources :users, only: [:show, :edit, :update]
+
+
+  
+
+
+  
 
   get '/homes/about' => 'homes#about',as: 'about'
 
